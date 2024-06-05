@@ -13,7 +13,7 @@ https://github.com/microsoft/ARI/Modules/Compute/ARCServers.ps1
     This powershell Module is part of Azure Resource Inventory (ARI)
 
 .NOTES
-Version: 2.0.0
+Version: 3.0.1
 First Release Date: 19th November, 2020
 Authors: Claudio Merola and Renato Gregio 
 
@@ -40,22 +40,63 @@ If ($Task -eq 'Processing')
                 $sub1 = $SUB | Where-Object { $_.id -eq $1.subscriptionId }
                 $data = $1.PROPERTIES
                 $Tags = if(![string]::IsNullOrEmpty($1.tags.psobject.properties)){$1.tags.psobject.properties}else{'0'}
+
+                if($data.networkprofile.networkinterfaces.ipaddresses.count -gt 1)
+                    {
+                        $IPTemp = @()
+                        $SubnetTemp = @()
+                        foreach ($IPaddresses in $data.networkprofile.networkinterfaces.ipaddresses)
+                            {
+                                $IPTemp += $IPaddresses.address
+                                $SubnetTemp += $IPaddresses.subnet.addressprefix
+                            }
+                        $IP = if ($IPTemp.count -gt 1) { $IPTemp | ForEach-Object { $_ + ' ,' } }else { $IPTemp }
+                        $IP = [string]$IP
+                        $IP = if ($IP -like '* ,*') { $IP -replace ".$" }else { $IP }
+
+                        $Subnet = if ($SubnetTemp.count -gt 1) { $SubnetTemp | ForEach-Object { $_ + ' ,' } }else { $SubnetTemp }
+                        $Subnet = [string]$Subnet
+                        $Subnet = if ($Subnet -like '* ,*') { $Subnet -replace ".$" }else { $Subnet }
+                    }
+                else
+                    {
+                        $IP = $data.networkprofile.networkinterfaces.ipaddresses.address
+                        $Subnet = $data.networkprofile.networkinterfaces.ipaddresses.subnet.addressprefix
+                    }
+
                     foreach ($Tag in $Tags) { 
                         $obj = @{
                             'ID'                   = $1.id;
                             'Subscription'         = $sub1.name;
                             'Resource Group'       = $1.RESOURCEGROUP;
-                            'Name'                 = $1.NAME;
                             'Location'             = $1.LOCATION;
-                            'model'                = $data.detectedProperties.model;
-                            'status'               = $data.status;
-                            'osName'               = $data.osName;
-                            'osVersion'            = $data.osVersion;
-                            'osSku'                = $data.osSku;
-                            'machineFqdn'          = $data.machineFqdn;
-                            'dnsFqdn'              = $data.dnsFqdn;
-                            'adFqdn'               = $data.adFqdn;
-                            'domainName'           = $data.domainName;
+                            'Name'                 = $1.NAME;
+                            'Display Name'         = $data.displayname;
+                            'Domain'               = $data.domainname;
+                            'AD FQDN'              = $data.adfqdn;
+                            'DNS FQDN'             = $data.dnsfqdn;
+                            'Cloud Provider'       = $data.cloudmetadata.provider;
+                            'Manufacturer'         = $data.detectedproperties.manufacturer;
+                            'Model'                = $data.detectedProperties.model;
+                            'Processor'            = $data.detectedproperties.processornames;
+                            'Processor Count'      = $data.detectedproperties.processorcount;
+                            'Logical Core Count'   = $data.detectedproperties.logicalcorecount;
+                            'Memory (GB)'          = $data.detectedproperties.totalphysicalmemoryingigabytes;
+                            'Serial Number'        = $data.detectedproperties.serialnumber;
+                            'Asset Tag'            = $data.detectedproperties.smbiosassettag;
+                            'MS SQL Server'        = $data.mssqldiscovered;
+                            'Agent Version'        = $data.agentversion;
+                            'Status'               = $data.status;
+                            'Last Status Change'   = [string](get-date($data.laststatuschange));
+                            'IP Address'           = $IP;
+                            'Subnet'               = $Subnet;
+                            'OS Name'              = $data.osName;
+                            'OS Version'           = $data.osVersion;
+                            'OS Install Date'      = [string](get-date($data.osinstalldate));
+                            'Operating System'     = $data.osSku;
+                            'License Status'       = $data.licenseprofile.licensestatus;
+                            'License Channel'      = $data.licenseprofile.licensechannel;
+                            'License Type'         = $data.licenseprofile.esuprofile.servertype;
                             'Resource U'           = $ResUCount;
                             'Tag Name'             = [string]$Tag.Name;
                             'Tag Value'            = [string]$Tag.Value
@@ -76,23 +117,39 @@ Else
 
     if($SmaResources.ARCServers)
     {
-        $TableName = ('ARCServer_'+($SmaResources.ARCServer.id | Select-Object -Unique).count)
+        $TableName = ('ARCServer_'+($SmaResources.ARCServers.id | Select-Object -Unique).count)
         $Style = New-ExcelStyle -HorizontalAlignment Center -AutoSize -NumberFormat '0'
 
         $Exc = New-Object System.Collections.Generic.List[System.Object]
         $Exc.Add('Subscription')
         $Exc.Add('Resource Group')
-        $Exc.Add('Name')
         $Exc.Add('Location')
-        $Exc.Add('model')
-        $Exc.Add('status')
-        $Exc.Add('osName')
-        $Exc.Add('osVersion')
-        $Exc.Add('osSku')
-        $Exc.Add('machineFqdn')
-        $Exc.Add('dnsFqdn')
-        $Exc.Add('adFqdn')
-        $Exc.Add('domainName')
+        $Exc.Add('Name')
+        $Exc.Add('Display Name')
+        $Exc.Add('Domain')
+        $Exc.Add('AD FQDN')
+        $Exc.Add('DNS FQDN')
+        $Exc.Add('Cloud Provider')
+        $Exc.Add('Manufacturer')
+        $Exc.Add('Model')
+        $Exc.Add('Processor')
+        $Exc.Add('Processor Count')
+        $Exc.Add('Logical Core Count')
+        $Exc.Add('Memory (GB)')
+        $Exc.Add('Serial Number')
+        $Exc.Add('Asset Tag')
+        $Exc.Add('MS SQL Server')
+        $Exc.Add('Agent Version')
+        $Exc.Add('Status')
+        $Exc.Add('Last Status Change')
+        $Exc.Add('IP Address')
+        $Exc.Add('Subnet')
+        $Exc.Add('OS Name')
+        $Exc.Add('OS Version')
+        $Exc.Add('OS Install Date')
+        $Exc.Add('License Status')
+        $Exc.Add('License Channel')
+        $Exc.Add('License Type')
         if($InTag)
             {
                 $Exc.Add('Tag Name')
