@@ -2,9 +2,9 @@
 #                                                                                        #
 #                * Azure Resource Inventory ( ARI ) Report Generator *                   #
 #                                                                                        #
-#       Version: 3.1.33                                                                  #
+#       Version: 3.1.38                                                                  #
 #                                                                                        #
-#       Date: 07/08/2024                                                                 #
+#       Date: 07/15/2024                                                                 #
 #                                                                                        #
 ##########################################################################################
 <#
@@ -560,11 +560,24 @@ param ($TenantID,
                         while ($SubLooper -lt $SubLoop)
                             {
                                 $Sub = $FSubscri[$NStart..$NEnd]
-
-                                $QueryResult = (az graph query -q $GraphQuery --subscriptions $Sub --first 1000 --output json --only-show-errors).tolower() | ConvertFrom-Json
+                                try
+                                    {
+                                        $QueryResult = az graph query -q $GraphQuery --subscriptions $Sub --first 1000 --output json --only-show-errors | ConvertFrom-Json
+                                    }
+                                catch
+                                    {
+                                        $QueryResult = az graph query -q $GraphQuery --subscriptions $Sub --first 200 --output json --only-show-errors | ConvertFrom-Json
+                                    }
                                 $LocalResults += $QueryResult
                                 while ($QueryResult.skip_token) {
-                                    $QueryResult = (az graph query -q $GraphQuery --subscriptions $Sub --skip-token $QueryResult.skip_token --first 1000 --output json --only-show-errors).tolower() | ConvertFrom-Json
+                                    try
+                                        {
+                                            $QueryResult = az graph query -q $GraphQuery --subscriptions $Sub --skip-token $QueryResult.skip_token --first 1000 --output json --only-show-errors | ConvertFrom-Json
+                                        }
+                                    catch
+                                        {
+                                            $QueryResult = az graph query -q $GraphQuery --subscriptions $Sub --skip-token $QueryResult.skip_token --first 200 --output json --only-show-errors | ConvertFrom-Json
+                                        }
                                     $LocalResults += $QueryResult
                                 }
                                 $NStart = $NStart + 200
@@ -574,7 +587,14 @@ param ($TenantID,
                     }
                 else
                     {
-                        $QueryResult = (az graph query -q $GraphQuery --subscriptions $FSubscri --first 1000 --output json --only-show-errors).tolower()
+                        try
+                            {
+                                $QueryResult = az graph query -q $GraphQuery --subscriptions $FSubscri --first 1000 --output json --only-show-errors
+                            }
+                        catch
+                            {
+                                $QueryResult = az graph query -q $GraphQuery --subscriptions $FSubscri --first 200 --output json --only-show-errors
+                            }
                         try
                             {
                                 $QueryResult = $QueryResult | ConvertFrom-Json
@@ -586,7 +606,14 @@ param ($TenantID,
                         
                         $LocalResults += $QueryResult
                         while ($QueryResult.skip_token) {
-                            $QueryResult = (az graph query -q $GraphQuery --subscriptions $FSubscri --skip-token $QueryResult.skip_token --first 1000 --output json --only-show-errors).tolower() | ConvertFrom-Json
+                            try
+                                {
+                                    $QueryResult = az graph query -q $GraphQuery --subscriptions $FSubscri --skip-token $QueryResult.skip_token --first 1000 --output json --only-show-errors
+                                }
+                            catch
+                                {
+                                    $QueryResult = az graph query -q $GraphQuery --subscriptions $FSubscri --skip-token $QueryResult.skip_token --first 200 --output json --only-show-errors
+                                }
                             try
                                 {
                                     $QueryResult = $QueryResult | ConvertFrom-Json
@@ -1227,11 +1254,13 @@ param ($TenantID,
 
         $AzSubs = Receive-Job -Name 'Subscriptions'
 
-        $Global:SmaResources = Foreach ($Job in $JobNames)
+        $Global:SmaResources = @()
+
+        Foreach ($Job in $JobNames)
             {
                 $TempJob = Receive-Job -Name $Job
                 Write-Debug ((get-date -Format 'yyyy-MM-dd_HH_mm_ss')+' - '+'Job '+ $Job +' Returned: ' + ($TempJob.values | Where-Object {$_ -ne $null}).Count + ' Resource Types.')
-                $TempJob
+                $Global:SmaResources += $TempJob
             }
 
         <############################################################## REPORTING ###################################################################>
@@ -1278,7 +1307,7 @@ param ($TenantID,
             Start-Sleep -Milliseconds 50
             $ModuleName = $Module.name.replace('.ps1','')
 
-            $ModuleResourceCount = $SmaResources[$ModuleName].count
+            $ModuleResourceCount = $SmaResources.$ModuleName.count
 
             if ($ModuleResourceCount -gt 0)
                 {
