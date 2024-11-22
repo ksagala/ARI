@@ -167,7 +167,7 @@ param ([ValidateSet('AzureCloud', 'AzureUSGovernment','AzureChinaCloud')]
 
     if ($Help.IsPresent) {
         Get-UsageMode
-        Exit
+        Break
     }
     else {
 
@@ -181,7 +181,7 @@ param ([ValidateSet('AzureCloud', 'AzureUSGovernment','AzureChinaCloud')]
 
         if ($PlatOS -ne 'Azure CloudShell' -and !$Automation.IsPresent)
             {
-                $TenantID = Connect-ARILoginSession -AzureEnvironment $AzureEnvironment -TenantID $TenantID -SubscriptionID $SubscriptionID -DeviceLogin $DeviceLogin, -AppId $AppId -Secret $Secret
+                $TenantID = Connect-ARILoginSession -AzureEnvironment $AzureEnvironment -TenantID $TenantID -SubscriptionID $SubscriptionID -DeviceLogin $DeviceLogin -AppId $AppId -Secret $Secret -Debug $Debug
             }
         elseif ($Automation.IsPresent)
             {
@@ -311,7 +311,14 @@ param ([ValidateSet('AzureCloud', 'AzureUSGovernment','AzureChinaCloud')]
             {
                 $Date = get-date -Format "yyyy-MM-dd_HH_mm"
 
-                $File = ("ARI_Automation_Report_"+$Date+".xlsx")
+                if($ReportName -eq 'AzureResourceInventory')
+                    {
+                        $File = ("ARI_Automation_Report_"+$Date+".xlsx")
+                    }
+                else
+                    {
+                        $File = ($ReportName+'_'+$Date+'.xlsx')
+                    }
             }
         else
             {
