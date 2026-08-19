@@ -1700,16 +1700,16 @@
 <span class="nb">Invoke-ARI</span>
 </code></pre></div>
 <h3 id="specific-tenant">Specific Tenant</h3>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span>
 </code></pre></div>
 <h3 id="service-principal">Service Principal</h3>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span> <span class="n">-AppId</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span> <span class="n">-Secret</span> <span class="s2">&quot;your-client-secret&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span> <span class="n">-AppId</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span> <span class="n">-Secret</span> <span class="s2">"your-client-secret"</span>
 </code></pre></div>
 <h3 id="certificate-based-authentication">Certificate-Based Authentication</h3>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span> <span class="n">-AppId</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span> <span class="n">-CertificatePath</span> <span class="s2">&quot;C:\Certificates\cert.pfx&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span> <span class="n">-AppId</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span> <span class="n">-CertificatePath</span> <span class="s2">"C:\Certificates\cert.pfx"</span>
 </code></pre></div>
 <h3 id="device-code-authentication">Device Code Authentication</h3>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span> <span class="n">-DeviceLogin</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span> <span class="n">-DeviceLogin</span>
 </code></pre></div>
 <h2 id="scoping-your-inventory">Scoping Your Inventory</h2>
 <p>ARI can be scoped to different levels:</p>
@@ -1717,23 +1717,23 @@
 <div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span>
 </code></pre></div>
 <h3 id="specific-subscription">Specific Subscription</h3>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span>
 </code></pre></div>
 <h3 id="specific-resource-group">Specific Resource Group</h3>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span> <span class="n">-ResourceGroup</span> <span class="s2">&quot;MyResourceGroup&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span> <span class="n">-ResourceGroup</span> <span class="s2">"MyResourceGroup"</span>
 </code></pre></div>
 <h3 id="management-group">Management Group</h3>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-ManagementGroup</span> <span class="s2">&quot;MyManagementGroup&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-ManagementGroup</span> <span class="s2">"MyManagementGroup"</span>
 </code></pre></div>
 <h3 id="tag-based-filtering">Tag-Based Filtering</h3>
 <div class="highlight"><pre><span></span><code><span class="c"># Resources with specific tag key</span>
-<span class="nb">Invoke-ARI</span> <span class="n">-TagKey</span> <span class="s2">&quot;Environment&quot;</span>
+<span class="nb">Invoke-ARI</span> <span class="n">-TagKey</span> <span class="s2">"Environment"</span>
 
 <span class="c"># Resources with specific tag value</span>
-<span class="nb">Invoke-ARI</span> <span class="n">-TagValue</span> <span class="s2">&quot;Production&quot;</span>
+<span class="nb">Invoke-ARI</span> <span class="n">-TagValue</span> <span class="s2">"Production"</span>
 
 <span class="c"># Resources with specific tag key and value</span>
-<span class="nb">Invoke-ARI</span> <span class="n">-TagKey</span> <span class="s2">&quot;Environment&quot;</span> <span class="n">-TagValue</span> <span class="s2">&quot;Production&quot;</span>
+<span class="nb">Invoke-ARI</span> <span class="n">-TagKey</span> <span class="s2">"Environment"</span> <span class="n">-TagValue</span> <span class="s2">"Production"</span>
 </code></pre></div>
 <h2 id="report-content-control">Report Content Control</h2>
 <p>Control what information is included in your reports:</p>
@@ -1759,10 +1759,10 @@
 <h2 id="report-output-options">Report Output Options</h2>
 <p>Customize how the report is generated and saved:</p>
 <h3 id="custom-report-name">Custom Report Name</h3>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-ReportName</span> <span class="s2">&quot;MyAzureInventory&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-ReportName</span> <span class="s2">"MyAzureInventory"</span>
 </code></pre></div>
 <h3 id="custom-output-directory">Custom Output Directory</h3>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-ReportDir</span> <span class="s2">&quot;C:\Reports&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-ReportDir</span> <span class="s2">"C:\Reports"</span>
 </code></pre></div>
 <h3 id="lightweight-report-format">Lightweight Report Format</h3>
 <div class="highlight"><pre><span></span><code><span class="c"># Generate report without charts for faster processing</span>
@@ -1788,7 +1788,7 @@
 </code></pre></div>
 <h3 id="specify-azure-environment">Specify Azure Environment</h3>
 <div class="highlight"><pre><span></span><code><span class="c"># For non-standard Azure environments</span>
-<span class="nb">Invoke-ARI</span> <span class="n">-AzureEnvironment</span> <span class="s2">&quot;AzureUSGovernment&quot;</span>
+<span class="nb">Invoke-ARI</span> <span class="n">-AzureEnvironment</span> <span class="s2">"AzureUSGovernment"</span>
 </code></pre></div>
 <h2 id="using-cloud-shell">Using Cloud Shell</h2>
 <p>When running in Azure Cloud Shell, it's recommended to use:</p>

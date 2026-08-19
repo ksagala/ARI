@@ -1311,7 +1311,7 @@
 <p>This guide covers common usage scenarios for Azure Resource Inventory. Each scenario includes the required commands and explains when you might want to use each approach.</p>
 <h2 id="scenario-1-complete-enterprise-documentation">Scenario 1: Complete Enterprise Documentation</h2>
 <p>When you need comprehensive documentation of your entire Azure estate across multiple subscriptions:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span> <span class="n">-IncludeTags</span> <span class="n">-SecurityCenter</span> <span class="n">-IncludeCosts</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span> <span class="n">-IncludeTags</span> <span class="n">-SecurityCenter</span> <span class="n">-IncludeCosts</span>
 </code></pre></div>
 <p>This command will:
 - Document all resources in the tenant
@@ -1320,7 +1320,7 @@
 - Include cost data for resources (requires Az.CostManagement module)</p>
 <h2 id="scenario-2-quick-inventory-for-a-single-subscription">Scenario 2: Quick Inventory for a Single Subscription</h2>
 <p>When you need a fast overview of a specific subscription:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span> <span class="n">-Lite</span> <span class="n">-SkipDiagram</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span> <span class="n">-Lite</span> <span class="n">-SkipDiagram</span>
 </code></pre></div>
 <p>This command will:
 - Document only the specified subscription
@@ -1328,14 +1328,14 @@
 - Skip diagram generation for faster results</p>
 <h2 id="scenario-3-security-focused-documentation">Scenario 3: Security-Focused Documentation</h2>
 <p>When you need to assess the security posture of your Azure environment:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-SecurityCenter</span> <span class="n">-ReportName</span> <span class="s2">&quot;SecurityInventory&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-SecurityCenter</span> <span class="n">-ReportName</span> <span class="s2">"SecurityInventory"</span>
 </code></pre></div>
 <p>This command will:
 - Include Azure Security Center findings
 - Name the report "SecurityInventory"</p>
 <h2 id="scenario-4-network-topology-documentation">Scenario 4: Network Topology Documentation</h2>
 <p>When you need detailed network diagrams:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-DiagramFullEnvironment</span> <span class="n">-ReportName</span> <span class="s2">&quot;NetworkDiagrams&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-DiagramFullEnvironment</span> <span class="n">-ReportName</span> <span class="s2">"NetworkDiagrams"</span>
 </code></pre></div>
 <p>This command will:
 - Generate comprehensive network diagrams
@@ -1343,14 +1343,14 @@
 - Name the report "NetworkDiagrams"</p>
 <h2 id="scenario-5-production-environment-audit">Scenario 5: Production Environment Audit</h2>
 <p>When you need to focus on your production resources:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TagKey</span> <span class="s2">&quot;Environment&quot;</span> <span class="n">-TagValue</span> <span class="s2">&quot;Production&quot;</span> <span class="n">-IncludeTags</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TagKey</span> <span class="s2">"Environment"</span> <span class="n">-TagValue</span> <span class="s2">"Production"</span> <span class="n">-IncludeTags</span>
 </code></pre></div>
 <p>This command will:
 - Document only resources tagged with "Environment:Production"
 - Include all resource tags in the report</p>
 <h2 id="scenario-6-regular-scheduled-reporting-with-automation">Scenario 6: Regular Scheduled Reporting with Automation</h2>
 <p>When you need to set up regular reports using Azure Automation:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span> <span class="n">-Automation</span> <span class="n">-StorageAccount</span> <span class="s2">&quot;mystorageaccount&quot;</span> <span class="n">-StorageContainer</span> <span class="s2">&quot;reports&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span> <span class="n">-Automation</span> <span class="n">-StorageAccount</span> <span class="s2">"mystorageaccount"</span> <span class="n">-StorageContainer</span> <span class="s2">"reports"</span>
 </code></pre></div>
 <p>This command will:
 - Run in an Azure Automation Account
@@ -1358,14 +1358,14 @@
 <p>See the <a href="../../advanced/automation/">Automation Guide</a> for detailed setup instructions.</p>
 <h2 id="scenario-7-non-interactive-service-principal-access">Scenario 7: Non-Interactive Service Principal Access</h2>
 <p>When you need to run ARI without interactive login:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span> <span class="n">-AppId</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span> <span class="n">-Secret</span> <span class="s2">&quot;your-client-secret&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span> <span class="n">-AppId</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span> <span class="n">-Secret</span> <span class="s2">"your-client-secret"</span>
 </code></pre></div>
 <p>This command will:
 - Use service principal authentication
 - Require appropriate permissions for the service principal</p>
 <h2 id="scenario-8-governance-level-documentation-with-policies">Scenario 8: Governance-Level Documentation with Policies</h2>
 <p>When you need to focus on governance and compliance:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-ManagementGroup</span> <span class="s2">&quot;governance-mg&quot;</span> <span class="n">-SkipDiagram</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-ManagementGroup</span> <span class="s2">"governance-mg"</span> <span class="n">-SkipDiagram</span>
 </code></pre></div>
 <p>This command will:
 - Document all resources within the specified management group
@@ -1373,16 +1373,16 @@
 <h2 id="scenario-9-resource-group-comparison">Scenario 9: Resource Group Comparison</h2>
 <p>When you need to compare development, staging, and production environments:</p>
 <div class="highlight"><pre><span></span><code><span class="c"># Run these separately to create three different reports</span>
-<span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span> <span class="n">-ResourceGroup</span> <span class="s2">&quot;dev-rg&quot;</span> <span class="n">-ReportName</span> <span class="s2">&quot;Dev-Inventory&quot;</span>
-<span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span> <span class="n">-ResourceGroup</span> <span class="s2">&quot;staging-rg&quot;</span> <span class="n">-ReportName</span> <span class="s2">&quot;Staging-Inventory&quot;</span>
-<span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span> <span class="n">-ResourceGroup</span> <span class="s2">&quot;prod-rg&quot;</span> <span class="n">-ReportName</span> <span class="s2">&quot;Prod-Inventory&quot;</span>
+<span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span> <span class="n">-ResourceGroup</span> <span class="s2">"dev-rg"</span> <span class="n">-ReportName</span> <span class="s2">"Dev-Inventory"</span>
+<span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span> <span class="n">-ResourceGroup</span> <span class="s2">"staging-rg"</span> <span class="n">-ReportName</span> <span class="s2">"Staging-Inventory"</span>
+<span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span> <span class="n">-ResourceGroup</span> <span class="s2">"prod-rg"</span> <span class="n">-ReportName</span> <span class="s2">"Prod-Inventory"</span>
 </code></pre></div>
 <p>This set of commands will:
 - Create separate inventory reports for each environment
 - Allow side-by-side comparison of resources</p>
 <h2 id="scenario-10-running-in-cloud-shell">Scenario 10: Running in Cloud Shell</h2>
 <p>When you need to run ARI in Azure Cloud Shell:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-Debug</span> <span class="n">-Lite</span> <span class="n">-ReportName</span> <span class="s2">&quot;CloudShellInventory&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-Debug</span> <span class="n">-Lite</span> <span class="n">-ReportName</span> <span class="s2">"CloudShellInventory"</span>
 </code></pre></div>
 <p>This command will:
 - Run in debug mode to handle Cloud Shell limitations

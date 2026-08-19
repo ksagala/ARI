@@ -1601,7 +1601,7 @@
    <div class="highlight"><pre><span></span><code><span class="nb">Install-Module</span> <span class="n">-Name</span> <span class="n">AzureResourceInventory</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span>
 </code></pre></div>
 3. If installed but still not found, check your PSModulePath:
-   <div class="highlight"><pre><span></span><code><span class="nv">$env:PSModulePath</span> <span class="n">-split</span> <span class="s1">&#39;;&#39;</span>
+   <div class="highlight"><pre><span></span><code><span class="nv">$env:PSModulePath</span> <span class="n">-split</span> <span class="s1">';'</span>
 </code></pre></div></p>
 <h4 id="permission-issues-during-installation">Permission Issues During Installation</h4>
 <p><strong>Issue</strong>: "Access denied" or permission errors during installation.</p>
@@ -1651,7 +1651,7 @@
    <div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-SkipAdvisory</span>
 </code></pre></div>
 4. Limit to specific subscriptions:
-   <div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span>
+   <div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span>
 </code></pre></div></p>
 <h4 id="memory-errors">Memory Errors</h4>
 <p><strong>Issue</strong>: Out of memory errors during execution.</p>
@@ -1723,12 +1723,12 @@
 </code></pre></div>
 <h3 id="testing-specific-components">Testing Specific Components</h3>
 <p>Test Azure Resource Graph access:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">Search-AzGraph</span> <span class="n">-Query</span> <span class="s2">&quot;Resources | project name, type, location | limit 10&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Search-AzGraph</span> <span class="n">-Query</span> <span class="s2">"Resources | project name, type, location | limit 10"</span>
 </code></pre></div>
 <p>Test Excel generation capability:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">Import-Module</span> <span class="n">ImportExcel</span>
-<span class="nv">$data</span> <span class="p">=</span> <span class="p">@(</span><span class="no">[pscustomobject]</span><span class="p">@{</span><span class="n">Name</span><span class="p">=</span><span class="s2">&quot;Test&quot;</span><span class="p">;</span> <span class="n">Value</span><span class="p">=</span><span class="s2">&quot;Value&quot;</span><span class="p">})</span>
-<span class="nv">$data</span> <span class="p">|</span> <span class="nb">Export-Excel</span> <span class="n">-Path</span> <span class="s2">&quot;test.xlsx&quot;</span>
+<span class="nv">$data</span> <span class="p">=</span> <span class="p">@(</span><span class="no">[pscustomobject]</span><span class="p">@{</span><span class="n">Name</span><span class="p">=</span><span class="s2">"Test"</span><span class="p">;</span> <span class="n">Value</span><span class="p">=</span><span class="s2">"Value"</span><span class="p">})</span>
+<span class="nv">$data</span> <span class="p">|</span> <span class="nb">Export-Excel</span> <span class="n">-Path</span> <span class="s2">"test.xlsx"</span>
 </code></pre></div>
 <h2 id="getting-help">Getting Help</h2>
 <p>If you've tried the solutions above and still have issues:</p>

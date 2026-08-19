@@ -1643,10 +1643,10 @@
 </ol>
 <h2 id="azure-devops-pipeline-yaml">Azure DevOps Pipeline YAML</h2>
 <p>Create a new file in your repository named <code>azure-pipelines/ari-inventory.yml</code> with the following content:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span><span class="w"> </span><span class="c1"># Don&#39;t trigger on code changes</span>
+<div class="highlight"><pre><span></span><code><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span><span class="w"> </span><span class="c1"># Don't trigger on code changes</span>
 
 <span class="nt">schedules</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">1&quot;</span><span class="w"> </span><span class="c1"># Run weekly on Monday at 8:00 AM UTC</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">"0</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">1"</span><span class="w"> </span><span class="c1"># Run weekly on Monday at 8:00 AM UTC</span>
 <span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Weekly Run</span>
 <span class="w">  </span><span class="nt">branches</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">include</span><span class="p">:</span>
@@ -1655,31 +1655,31 @@
 
 <span class="nt">parameters</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscriptionId</span>
-<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Specific</span><span class="nv"> </span><span class="s">subscription</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">(optional)&#39;</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">'Specific</span><span class="nv"> </span><span class="s">subscription</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">(optional)'</span>
 <span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span>
+<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">''</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">resourceGroup</span>
-<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Specific</span><span class="nv"> </span><span class="s">resource</span><span class="nv"> </span><span class="s">group</span><span class="nv"> </span><span class="s">(optional)&#39;</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">'Specific</span><span class="nv"> </span><span class="s">resource</span><span class="nv"> </span><span class="s">group</span><span class="nv"> </span><span class="s">(optional)'</span>
 <span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span>
+<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">''</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reportName</span>
-<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Custom</span><span class="nv"> </span><span class="s">report</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">(optional)&#39;</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">'Custom</span><span class="nv"> </span><span class="s">report</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">(optional)'</span>
 <span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;AzureInventory&#39;</span>
+<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">'AzureInventory'</span>
 
 <span class="nt">pool</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">vmImage</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;windows-latest&#39;</span>
+<span class="w">  </span><span class="nt">vmImage</span><span class="p">:</span><span class="w"> </span><span class="s">'windows-latest'</span>
 
 <span class="nt">variables</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">azureServiceConnection</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ARI-ServiceConnection&#39;</span><span class="w"> </span><span class="c1"># Replace with your service connection name</span>
+<span class="w">  </span><span class="nt">azureServiceConnection</span><span class="p">:</span><span class="w"> </span><span class="s">'ARI-ServiceConnection'</span><span class="w"> </span><span class="c1"># Replace with your service connection name</span>
 
 <span class="nt">steps</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AzureCLI@2</span>
-<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Install</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Run</span><span class="nv"> </span><span class="s">Azure</span><span class="nv"> </span><span class="s">Resource</span><span class="nv"> </span><span class="s">Inventory&#39;</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">'Install</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Run</span><span class="nv"> </span><span class="s">Azure</span><span class="nv"> </span><span class="s">Resource</span><span class="nv"> </span><span class="s">Inventory'</span>
 <span class="w">  </span><span class="nt">inputs</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">azureSubscription</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(azureServiceConnection)</span>
-<span class="w">    </span><span class="nt">scriptType</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ps&#39;</span>
-<span class="w">    </span><span class="nt">scriptLocation</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;inlineScript&#39;</span>
+<span class="w">    </span><span class="nt">scriptType</span><span class="p">:</span><span class="w"> </span><span class="s">'ps'</span>
+<span class="w">    </span><span class="nt">scriptLocation</span><span class="p">:</span><span class="w"> </span><span class="s">'inlineScript'</span>
 <span class="w">    </span><span class="nt">inlineScript</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">      </span><span class="no"># Install required modules</span>
 <span class="w">      </span><span class="no">Install-Module -Name AzureResourceInventory -Force -Scope CurrentUser</span>
@@ -1693,64 +1693,64 @@
 <span class="w">      </span><span class="no">$params = @{}</span>
 
 <span class="w">      </span><span class="no"># If subscription ID is provided</span>
-<span class="w">      </span><span class="no">if (&quot;${{ parameters.subscriptionId }}&quot; -ne &quot;&quot;) {</span>
-<span class="w">        </span><span class="no">$params.Add(&quot;SubscriptionID&quot;, &quot;${{ parameters.subscriptionId }}&quot;)</span>
+<span class="w">      </span><span class="no">if ("${{ parameters.subscriptionId }}" -ne "") {</span>
+<span class="w">        </span><span class="no">$params.Add("SubscriptionID", "${{ parameters.subscriptionId }}")</span>
 <span class="w">      </span><span class="no">}</span>
 
 <span class="w">      </span><span class="no"># If resource group is provided</span>
-<span class="w">      </span><span class="no">if (&quot;${{ parameters.resourceGroup }}&quot; -ne &quot;&quot;) {</span>
-<span class="w">        </span><span class="no">$params.Add(&quot;ResourceGroup&quot;, &quot;${{ parameters.resourceGroup }}&quot;)</span>
+<span class="w">      </span><span class="no">if ("${{ parameters.resourceGroup }}" -ne "") {</span>
+<span class="w">        </span><span class="no">$params.Add("ResourceGroup", "${{ parameters.resourceGroup }}")</span>
 <span class="w">      </span><span class="no">}</span>
 
 <span class="w">      </span><span class="no"># Set report name</span>
-<span class="w">      </span><span class="no">if (&quot;${{ parameters.reportName }}&quot; -ne &quot;&quot;) {</span>
-<span class="w">        </span><span class="no">$params.Add(&quot;ReportName&quot;, &quot;${{ parameters.reportName }}&quot;)</span>
+<span class="w">      </span><span class="no">if ("${{ parameters.reportName }}" -ne "") {</span>
+<span class="w">        </span><span class="no">$params.Add("ReportName", "${{ parameters.reportName }}")</span>
 <span class="w">      </span><span class="no">} else {</span>
-<span class="w">        </span><span class="no">$params.Add(&quot;ReportName&quot;, &quot;AzureInventory_$(Get-Date -Format &#39;yyyyMMdd&#39;)&quot;)</span>
+<span class="w">        </span><span class="no">$params.Add("ReportName", "AzureInventory_$(Get-Date -Format 'yyyyMMdd')")</span>
 <span class="w">      </span><span class="no">}</span>
 
 <span class="w">      </span><span class="no"># Add any other parameters you want to use here</span>
 <span class="w">      </span><span class="no"># For example: </span>
-<span class="w">      </span><span class="no"># $params.Add(&quot;SecurityCenter&quot;, $true)</span>
-<span class="w">      </span><span class="no"># $params.Add(&quot;IncludeTags&quot;, $true)</span>
-<span class="w">      </span><span class="no"># $params.Add(&quot;DiagramFullEnvironment&quot;, $true)</span>
+<span class="w">      </span><span class="no"># $params.Add("SecurityCenter", $true)</span>
+<span class="w">      </span><span class="no"># $params.Add("IncludeTags", $true)</span>
+<span class="w">      </span><span class="no"># $params.Add("DiagramFullEnvironment", $true)</span>
 
 <span class="w">      </span><span class="no"># Run ARI</span>
 <span class="w">      </span><span class="no">Invoke-ARI @params</span>
 
 <span class="w">      </span><span class="no"># Create artifacts directory</span>
-<span class="w">      </span><span class="no">New-Item -Path &quot;$(Build.ArtifactStagingDirectory)/ari-reports&quot; -ItemType Directory -Force</span>
+<span class="w">      </span><span class="no">New-Item -Path "$(Build.ArtifactStagingDirectory)/ari-reports" -ItemType Directory -Force</span>
 
 <span class="w">      </span><span class="no"># Move reports to artifacts directory</span>
-<span class="w">      </span><span class="no">Move-Item -Path &quot;*.xlsx&quot; -Destination &quot;$(Build.ArtifactStagingDirectory)/ari-reports/&quot; -Force</span>
+<span class="w">      </span><span class="no">Move-Item -Path "*.xlsx" -Destination "$(Build.ArtifactStagingDirectory)/ari-reports/" -Force</span>
 
-<span class="w">      </span><span class="no">if (Test-Path &quot;*.drawio&quot;) {</span>
-<span class="w">        </span><span class="no">Move-Item -Path &quot;*.drawio&quot; -Destination &quot;$(Build.ArtifactStagingDirectory)/ari-reports/&quot; -Force</span>
+<span class="w">      </span><span class="no">if (Test-Path "*.drawio") {</span>
+<span class="w">        </span><span class="no">Move-Item -Path "*.drawio" -Destination "$(Build.ArtifactStagingDirectory)/ari-reports/" -Force</span>
 <span class="w">      </span><span class="no">}</span>
 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PublishBuildArtifacts@1</span>
-<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Publish</span><span class="nv"> </span><span class="s">Inventory</span><span class="nv"> </span><span class="s">Reports&#39;</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">'Publish</span><span class="nv"> </span><span class="s">Inventory</span><span class="nv"> </span><span class="s">Reports'</span>
 <span class="w">  </span><span class="nt">inputs</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">PathtoPublish</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;$(Build.ArtifactStagingDirectory)/ari-reports&#39;</span>
-<span class="w">    </span><span class="nt">ArtifactName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ARI-Reports&#39;</span>
-<span class="w">    </span><span class="nt">publishLocation</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Container&#39;</span>
+<span class="w">    </span><span class="nt">PathtoPublish</span><span class="p">:</span><span class="w"> </span><span class="s">'$(Build.ArtifactStagingDirectory)/ari-reports'</span>
+<span class="w">    </span><span class="nt">ArtifactName</span><span class="p">:</span><span class="w"> </span><span class="s">'ARI-Reports'</span>
+<span class="w">    </span><span class="nt">publishLocation</span><span class="p">:</span><span class="w"> </span><span class="s">'Container'</span>
 
 <span class="c1"># Optional: Upload to Azure Storage</span>
 <span class="c1"># - task: AzureCLI@2</span>
-<span class="c1">#   displayName: &#39;Upload Reports to Azure Storage&#39;</span>
+<span class="c1">#   displayName: 'Upload Reports to Azure Storage'</span>
 <span class="c1">#   inputs:</span>
 <span class="c1">#     azureSubscription: $(azureServiceConnection)</span>
-<span class="c1">#     scriptType: &#39;ps&#39;</span>
-<span class="c1">#     scriptLocation: &#39;inlineScript&#39;</span>
+<span class="c1">#     scriptType: 'ps'</span>
+<span class="c1">#     scriptLocation: 'inlineScript'</span>
 <span class="c1">#     inlineScript: |</span>
-<span class="c1">#       $storageAccount = &quot;yourstorageaccount&quot;</span>
-<span class="c1">#       $container = &quot;ari-reports&quot;</span>
+<span class="c1">#       $storageAccount = "yourstorageaccount"</span>
+<span class="c1">#       $container = "ari-reports"</span>
 <span class="c1">#       </span>
 <span class="c1">#       # Create storage context</span>
 <span class="c1">#       $ctx = New-AzStorageContext -StorageAccountName $storageAccount</span>
 <span class="c1">#       </span>
 <span class="c1">#       # Upload files to Azure Storage</span>
-<span class="c1">#       Get-ChildItem -Path &quot;$(Build.ArtifactStagingDirectory)/ari-reports&quot; -File | ForEach-Object {</span>
+<span class="c1">#       Get-ChildItem -Path "$(Build.ArtifactStagingDirectory)/ari-reports" -File | ForEach-Object {</span>
 <span class="c1">#         Set-AzStorageBlobContent -File $_.FullName -Container $container -Blob $_.Name -Context $ctx -Force</span>
 <span class="c1">#       }</span>
 </code></pre></div>
@@ -1770,14 +1770,14 @@
 <h3 id="scheduling">Scheduling</h3>
 <p>The default schedule runs the pipeline weekly on Monday at 8:00 AM UTC. Modify the <code>cron</code> expression to change the schedule:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">schedules</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">1&quot;</span><span class="w"> </span><span class="c1"># Run weekly on Monday at 8:00 AM UTC</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">"0</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">1"</span><span class="w"> </span><span class="c1"># Run weekly on Monday at 8:00 AM UTC</span>
 </code></pre></div>
 <h3 id="ari-parameters">ARI Parameters</h3>
 <p>You can add any ARI parameters in the PowerShell script section. For example:</p>
 <div class="highlight"><pre><span></span><code><span class="c"># Add parameters</span>
-<span class="nv">$params</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">&quot;SecurityCenter&quot;</span><span class="p">,</span> <span class="nv">$true</span><span class="p">)</span>
-<span class="nv">$params</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">&quot;IncludeTags&quot;</span><span class="p">,</span> <span class="nv">$true</span><span class="p">)</span>
-<span class="nv">$params</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">&quot;DiagramFullEnvironment&quot;</span><span class="p">,</span> <span class="nv">$true</span><span class="p">)</span>
+<span class="nv">$params</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">"SecurityCenter"</span><span class="p">,</span> <span class="nv">$true</span><span class="p">)</span>
+<span class="nv">$params</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">"IncludeTags"</span><span class="p">,</span> <span class="nv">$true</span><span class="p">)</span>
+<span class="nv">$params</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">"DiagramFullEnvironment"</span><span class="p">,</span> <span class="nv">$true</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="running-manually">Running Manually</h3>
 <p>You can run the pipeline manually with specific parameters:</p>
@@ -1791,12 +1791,12 @@
 <h3 id="multiple-subscriptions">Multiple Subscriptions</h3>
 <p>To inventory multiple subscriptions:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$subscriptionIds</span> <span class="p">=</span> <span class="p">@(</span>
-  <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;11111111-1111-1111-1111-111111111111&quot;</span>
+  <span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span>
+  <span class="s2">"11111111-1111-1111-1111-111111111111"</span>
 <span class="p">)</span>
 
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$subId</span> <span class="k">in</span> <span class="nv">$subscriptionIds</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="nv">$subId</span> <span class="n">-ReportName</span> <span class="s2">&quot;AzureInventory_${subId}_</span><span class="p">$(</span><span class="nb">Get-Date</span> <span class="n">-Format</span> <span class="s1">&#39;yyyyMMdd&#39;</span><span class="p">)</span><span class="s2">&quot;</span>
+  <span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="nv">$subId</span> <span class="n">-ReportName</span> <span class="s2">"AzureInventory_${subId}_</span><span class="p">$(</span><span class="nb">Get-Date</span> <span class="n">-Format</span> <span class="s1">'yyyyMMdd'</span><span class="p">)</span><span class="s2">"</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="email-notifications">Email Notifications</h3>

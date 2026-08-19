@@ -1543,22 +1543,22 @@
 <ol>
 <li>Create a service principal in Azure:</li>
 </ol>
-<div class="highlight"><pre><span></span><code>az<span class="w"> </span>ad<span class="w"> </span>sp<span class="w"> </span>create-for-rbac<span class="w"> </span>--name<span class="w"> </span><span class="s2">&quot;ARI-GitHub-Action&quot;</span><span class="w"> </span>--role<span class="w"> </span><span class="s2">&quot;Reader&quot;</span><span class="w"> </span>--scopes<span class="w"> </span><span class="s2">&quot;/subscriptions/YOUR_SUBSCRIPTION_ID&quot;</span><span class="w"> </span>--sdk-auth
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>ad<span class="w"> </span>sp<span class="w"> </span>create-for-rbac<span class="w"> </span>--name<span class="w"> </span><span class="s2">"ARI-GitHub-Action"</span><span class="w"> </span>--role<span class="w"> </span><span class="s2">"Reader"</span><span class="w"> </span>--scopes<span class="w"> </span><span class="s2">"/subscriptions/YOUR_SUBSCRIPTION_ID"</span><span class="w"> </span>--sdk-auth
 </code></pre></div>
 <ol>
 <li>Save the JSON output from this command. It will look similar to:</li>
 </ol>
 <p><div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YOUR_CLIENT_ID&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;clientSecret&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YOUR_CLIENT_SECRET&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;subscriptionId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YOUR_SUBSCRIPTION_ID&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;tenantId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YOUR_TENANT_ID&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;activeDirectoryEndpointUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://login.microsoftonline.com&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;resourceManagerEndpointUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://management.azure.com/&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;activeDirectoryGraphResourceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://graph.windows.net/&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;sqlManagementEndpointUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://management.core.windows.net:8443/&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;galleryEndpointUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://gallery.azure.com/&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;managementEndpointUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://management.core.windows.net/&quot;</span>
+<span class="w">  </span><span class="nt">"clientId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YOUR_CLIENT_ID"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"clientSecret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YOUR_CLIENT_SECRET"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"subscriptionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YOUR_SUBSCRIPTION_ID"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"tenantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YOUR_TENANT_ID"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"activeDirectoryEndpointUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://login.microsoftonline.com"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"resourceManagerEndpointUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://management.azure.com/"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"activeDirectoryGraphResourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://graph.windows.net/"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"sqlManagementEndpointUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://management.core.windows.net:8443/"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"galleryEndpointUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://gallery.azure.com/"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"managementEndpointUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://management.core.windows.net/"</span>
 <span class="p">}</span>
 </code></pre></div>
 3. In your GitHub repository, go to Settings → Secrets and variables → Actions</p>
@@ -1577,23 +1577,23 @@
 </ol>
 <p>The output of this command will look similar to this:
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;clientResourceGroup&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;myResourceGroup&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/subscriptions/&lt;subscription-id&gt;/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eastus&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;myIdentity&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;principalId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;resourceGroup&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;myResourceGroup&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
-<span class="w">  </span><span class="nt">&quot;tenantId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Microsoft.ManagedIdentity/userAssignedIdentities&quot;</span>
+<span class="w">  </span><span class="nt">"clientId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"clientResourceGroup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myResourceGroup"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/subscriptions/&lt;subscription-id&gt;/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eastus"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myIdentity"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"principalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"resourceGroup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myResourceGroup"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">  </span><span class="nt">"tenantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Microsoft.ManagedIdentity/userAssignedIdentities"</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <p>You should save this for later steps.</p>
 <ol>
 <li>
 <p>Assign reader role with appropiate scope:
-<div class="highlight"><pre><span></span><code>az<span class="w"> </span>role<span class="w"> </span>assignment<span class="w"> </span>create<span class="w"> </span>--assignee<span class="w"> </span>&lt;principal-id&gt;<span class="w"> </span>--role<span class="w"> </span><span class="s2">&quot;Reader&quot;</span><span class="w"> </span>--scope<span class="w"> </span>&lt;scope&gt;
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>role<span class="w"> </span>assignment<span class="w"> </span>create<span class="w"> </span>--assignee<span class="w"> </span>&lt;principal-id&gt;<span class="w"> </span>--role<span class="w"> </span><span class="s2">"Reader"</span><span class="w"> </span>--scope<span class="w"> </span>&lt;scope&gt;
 </code></pre></div>
 The scope of the role assignement will define if ARI will be able to find resources. It is adviseable to use the subscription/management group that contains everything you want to document.</p>
 </li>
@@ -1601,11 +1601,11 @@ The scope of the role assignement will define if ARI will be able to find resour
 <p>Create Federated Credentials<br />
 To log in with the created user-assigned identity, we need to create a federated credential, to be able to use OIDC to connect.
 <div class="highlight"><pre><span></span><code>az<span class="w"> </span>identity<span class="w"> </span>federated-credential<span class="w"> </span>create
-<span class="w">  </span>--identity-name<span class="w"> </span><span class="s2">&quot;myManagedIdentity&quot;</span>
-<span class="w">  </span>--resource-group<span class="w"> </span><span class="s2">&quot;myResourceGroup&quot;</span>
-<span class="w">  </span>--issuer<span class="w"> </span><span class="s2">&quot;https://token.actions.githubusercontent.com&quot;</span><span class="w"> </span>
-<span class="w">  </span>--subject<span class="w"> </span><span class="s2">&quot;repo:myorg/myrepo:ref:refs/heads/main&quot;</span>
-<span class="w">  </span>--name<span class="w"> </span><span class="s2">&quot;github-federation&quot;</span>
+<span class="w">  </span>--identity-name<span class="w"> </span><span class="s2">"myManagedIdentity"</span>
+<span class="w">  </span>--resource-group<span class="w"> </span><span class="s2">"myResourceGroup"</span>
+<span class="w">  </span>--issuer<span class="w"> </span><span class="s2">"https://token.actions.githubusercontent.com"</span><span class="w"> </span>
+<span class="w">  </span>--subject<span class="w"> </span><span class="s2">"repo:myorg/myrepo:ref:refs/heads/main"</span>
+<span class="w">  </span>--name<span class="w"> </span><span class="s2">"github-federation"</span>
 <span class="w">  </span><span class="c1"># Issuer will differ if you use GitHub Enterprise server.</span>
 </code></pre></div>
 You can also follow the the Microsoft Learn documentation: <a href="https://learn.microsoft.com/en-gb/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity?pivots=identity-wif-mi-methods-azp#github-actions-deploying-azure-resources">MS Learn/Configure a federated identity credential on a user-assigned managed identity</a></p>
@@ -1652,22 +1652,22 @@ If you forgot to save the output of the user-assigned identity, you can retrieve
 <span class="nt">on</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">schedule</span><span class="p">:</span>
 <span class="w">    </span><span class="c1"># Run weekly on Monday at 8:00 AM UTC</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;0</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">1&#39;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">'0</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">1'</span>
 <span class="w">  </span><span class="c1"># Allow manual trigger</span>
 <span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">inputs</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">subscriptionId</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Specific</span><span class="nv"> </span><span class="s">subscription</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">(optional)&#39;</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Specific</span><span class="nv"> </span><span class="s">subscription</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">(optional)'</span>
 <span class="w">        </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;00000000-0000-0000-0000-000000000000&#39;</span>
+<span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">'00000000-0000-0000-0000-000000000000'</span>
 <span class="w">      </span><span class="nt">resourceGroup</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Specific</span><span class="nv"> </span><span class="s">resource</span><span class="nv"> </span><span class="s">group</span><span class="nv"> </span><span class="s">(optional)&#39;</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Specific</span><span class="nv"> </span><span class="s">resource</span><span class="nv"> </span><span class="s">group</span><span class="nv"> </span><span class="s">(optional)'</span>
 <span class="w">        </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;test-rg&#39;</span>
+<span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">'test-rg'</span>
 <span class="w">      </span><span class="nt">reportName</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Custom</span><span class="nv"> </span><span class="s">report</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">(optional)&#39;</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Custom</span><span class="nv"> </span><span class="s">report</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">(optional)'</span>
 <span class="w">        </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;TestInventory&#39;</span>
+<span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">'TestInventory'</span>
 
 <span class="nt">jobs</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">run-inventory</span><span class="p">:</span>
@@ -1679,7 +1679,7 @@ If you forgot to save the output of the user-assigned identity, you can retrieve
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Login to Azure</span>
 <span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">azure/login@v2</span>
 <span class="w">        </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">creds</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{&quot;clientId&quot;:&quot;${{</span><span class="nv"> </span><span class="s">secrets.AZURE_CLIENT_ID</span><span class="nv"> </span><span class="s">}}&quot;,&quot;clientSecret&quot;:&quot;${{</span><span class="nv"> </span><span class="s">secrets.AZURE_CLIENT_SECRET</span><span class="nv"> </span><span class="s">}}&quot;,&quot;subscriptionId&quot;:&quot;${{</span><span class="nv"> </span><span class="s">secrets.AZURE_SUBSCRIPTION_ID</span><span class="nv"> </span><span class="s">}}&quot;,&quot;tenantId&quot;:&quot;${{</span><span class="nv"> </span><span class="s">secrets.AZURE_TENANT_ID</span><span class="nv"> </span><span class="s">}}&quot;}&#39;</span>
+<span class="w">          </span><span class="nt">creds</span><span class="p">:</span><span class="w"> </span><span class="s">'{"clientId":"${{</span><span class="nv"> </span><span class="s">secrets.AZURE_CLIENT_ID</span><span class="nv"> </span><span class="s">}}","clientSecret":"${{</span><span class="nv"> </span><span class="s">secrets.AZURE_CLIENT_SECRET</span><span class="nv"> </span><span class="s">}}","subscriptionId":"${{</span><span class="nv"> </span><span class="s">secrets.AZURE_SUBSCRIPTION_ID</span><span class="nv"> </span><span class="s">}}","tenantId":"${{</span><span class="nv"> </span><span class="s">secrets.AZURE_TENANT_ID</span><span class="nv"> </span><span class="s">}}"}'</span>
 <span class="w">          </span><span class="nt">enable-AzPSSession</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install ARI and dependencies</span>
@@ -1696,36 +1696,36 @@ If you forgot to save the output of the user-assigned identity, you can retrieve
 <span class="w">          </span><span class="no">$params = @{}</span>
 
 <span class="w">          </span><span class="no"># If subscription ID is provided</span>
-<span class="w">          </span><span class="no">if (&quot;${{ github.event.inputs.subscriptionId }}&quot; -ne &quot;&quot;) {</span>
-<span class="w">            </span><span class="no">$params.Add(&quot;SubscriptionID&quot;, &quot;${{ github.event.inputs.subscriptionId }}&quot;)</span>
+<span class="w">          </span><span class="no">if ("${{ github.event.inputs.subscriptionId }}" -ne "") {</span>
+<span class="w">            </span><span class="no">$params.Add("SubscriptionID", "${{ github.event.inputs.subscriptionId }}")</span>
 <span class="w">          </span><span class="no">}</span>
 
 <span class="w">          </span><span class="no"># If resource group is provided</span>
-<span class="w">          </span><span class="no">if (&quot;${{ github.event.inputs.resourceGroup }}&quot; -ne &quot;&quot;) {</span>
-<span class="w">            </span><span class="no">$params.Add(&quot;ResourceGroup&quot;, &quot;${{ github.event.inputs.resourceGroup }}&quot;)</span>
+<span class="w">          </span><span class="no">if ("${{ github.event.inputs.resourceGroup }}" -ne "") {</span>
+<span class="w">            </span><span class="no">$params.Add("ResourceGroup", "${{ github.event.inputs.resourceGroup }}")</span>
 <span class="w">          </span><span class="no">}</span>
 
 <span class="w">          </span><span class="no"># Set report name</span>
-<span class="w">          </span><span class="no">if (&quot;${{ github.event.inputs.reportName }}&quot; -ne &quot;&quot;) {</span>
-<span class="w">            </span><span class="no">$params.Add(&quot;ReportName&quot;, &quot;${{ github.event.inputs.reportName }}&quot;)</span>
+<span class="w">          </span><span class="no">if ("${{ github.event.inputs.reportName }}" -ne "") {</span>
+<span class="w">            </span><span class="no">$params.Add("ReportName", "${{ github.event.inputs.reportName }}")</span>
 <span class="w">          </span><span class="no">} else {</span>
-<span class="w">            </span><span class="no">$params.Add(&quot;ReportName&quot;, &quot;AzureInventory_$(Get-Date -Format &#39;yyyyMMdd&#39;)&quot;)</span>
+<span class="w">            </span><span class="no">$params.Add("ReportName", "AzureInventory_$(Get-Date -Format 'yyyyMMdd')")</span>
 <span class="w">          </span><span class="no">}</span>
 
 <span class="w">          </span><span class="no"># Add any other parameters you want to use here</span>
-<span class="w">          </span><span class="no"># For example: $params.Add(&quot;SecurityCenter&quot;, $true)</span>
+<span class="w">          </span><span class="no"># For example: $params.Add("SecurityCenter", $true)</span>
 
 <span class="w">          </span><span class="no"># Run ARI</span>
 <span class="w">          </span><span class="no">Invoke-ARI @params</span>
 
 <span class="w">          </span><span class="no"># Create artifacts directory</span>
-<span class="w">          </span><span class="no">New-Item -Path &quot;$env:GITHUB_WORKSPACE/ari-reports&quot; -ItemType Directory -Force</span>
+<span class="w">          </span><span class="no">New-Item -Path "$env:GITHUB_WORKSPACE/ari-reports" -ItemType Directory -Force</span>
 
 <span class="w">          </span><span class="no"># Move reports to artifacts directory</span>
-<span class="w">          </span><span class="no">Move-Item -Path &quot;$HOME/AzureResourceInventory/*.xlsx&quot; -Destination &quot;$env:GITHUB_WORKSPACE/ari-reports/&quot; -Force</span>
+<span class="w">          </span><span class="no">Move-Item -Path "$HOME/AzureResourceInventory/*.xlsx" -Destination "$env:GITHUB_WORKSPACE/ari-reports/" -Force</span>
 
-<span class="w">          </span><span class="no">if (Test-Path &quot;$HOME/AzureResourceInventory/*.xml&quot;) {</span>
-<span class="w">            </span><span class="no">Move-Item -Path &quot;&quot;$HOME/AzureResourceInventory/*.xml&quot; -Destination &quot;$env:GITHUB_WORKSPACE/ari-reports/&quot; -Force</span>
+<span class="w">          </span><span class="no">if (Test-Path "$HOME/AzureResourceInventory/*.xml") {</span>
+<span class="w">            </span><span class="no">Move-Item -Path ""$HOME/AzureResourceInventory/*.xml" -Destination "$env:GITHUB_WORKSPACE/ari-reports/" -Force</span>
 <span class="w">          </span><span class="no">}</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload Reports as Artifacts</span>
@@ -1739,14 +1739,14 @@ If you forgot to save the output of the user-assigned identity, you can retrieve
 <span class="w">      </span><span class="c1"># - name: Upload to Azure Storage</span>
 <span class="w">      </span><span class="c1">#   shell: pwsh</span>
 <span class="w">      </span><span class="c1">#   run: |</span>
-<span class="w">      </span><span class="c1">#     $storageAccount = &quot;yourstorageaccount&quot;</span>
-<span class="w">      </span><span class="c1">#     $container = &quot;ari-reports&quot;</span>
+<span class="w">      </span><span class="c1">#     $storageAccount = "yourstorageaccount"</span>
+<span class="w">      </span><span class="c1">#     $container = "ari-reports"</span>
 <span class="w">      </span><span class="c1">#</span>
 <span class="w">      </span><span class="c1">#     # Create the storage context</span>
 <span class="w">      </span><span class="c1">#     $ctx = New-AzStorageContext -StorageAccountName $storageAccount -UseConnectedAccount</span>
 <span class="w">      </span><span class="c1">#</span>
 <span class="w">      </span><span class="c1">#     # Upload files to Azure Storage</span>
-<span class="w">      </span><span class="c1">#     Get-ChildItem -Path &quot;$env:GITHUB_WORKSPACE/ari-reports&quot; -File | ForEach-Object {</span>
+<span class="w">      </span><span class="c1">#     Get-ChildItem -Path "$env:GITHUB_WORKSPACE/ari-reports" -File | ForEach-Object {</span>
 <span class="w">      </span><span class="c1">#       Set-AzStorageBlobContent -File $_.FullName -Container $container -Blob $_.Name -Context $ctx -Force</span>
 <span class="w">      </span><span class="c1">#     }</span>
 
@@ -1770,22 +1770,22 @@ If you forgot to save the output of the user-assigned identity, you can retrieve
 <span class="nt">on</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">schedule</span><span class="p">:</span>
 <span class="w">    </span><span class="c1"># Run weekly on Monday at 8:00 AM UTC</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;0</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">1&#39;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">'0</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">1'</span>
 <span class="w">  </span><span class="c1"># Allow manual trigger</span>
 <span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">inputs</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">subscriptionId</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Specific</span><span class="nv"> </span><span class="s">subscription</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">(optional)&#39;</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Specific</span><span class="nv"> </span><span class="s">subscription</span><span class="nv"> </span><span class="s">ID</span><span class="nv"> </span><span class="s">(optional)'</span>
 <span class="w">        </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;00000000-0000-0000-0000-000000000000&#39;</span>
+<span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">'00000000-0000-0000-0000-000000000000'</span>
 <span class="w">      </span><span class="nt">resourceGroup</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Specific</span><span class="nv"> </span><span class="s">resource</span><span class="nv"> </span><span class="s">group</span><span class="nv"> </span><span class="s">(optional)&#39;</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Specific</span><span class="nv"> </span><span class="s">resource</span><span class="nv"> </span><span class="s">group</span><span class="nv"> </span><span class="s">(optional)'</span>
 <span class="w">        </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;test-rg&#39;</span>
+<span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">'test-rg'</span>
 <span class="w">      </span><span class="nt">reportName</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Custom</span><span class="nv"> </span><span class="s">report</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">(optional)&#39;</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">'Custom</span><span class="nv"> </span><span class="s">report</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">(optional)'</span>
 <span class="w">        </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;TestInventory&#39;</span>
+<span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">'TestInventory'</span>
 
 <span class="nt">jobs</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">run-inventory</span><span class="p">:</span>
@@ -1816,36 +1816,36 @@ If you forgot to save the output of the user-assigned identity, you can retrieve
 <span class="w">          </span><span class="no">$params = @{}</span>
 
 <span class="w">          </span><span class="no"># If subscription ID is provided</span>
-<span class="w">          </span><span class="no">if (&quot;${{ github.event.inputs.subscriptionId }}&quot; -ne &quot;&quot;) {</span>
-<span class="w">            </span><span class="no">$params.Add(&quot;SubscriptionID&quot;, &quot;${{ github.event.inputs.subscriptionId }}&quot;)</span>
+<span class="w">          </span><span class="no">if ("${{ github.event.inputs.subscriptionId }}" -ne "") {</span>
+<span class="w">            </span><span class="no">$params.Add("SubscriptionID", "${{ github.event.inputs.subscriptionId }}")</span>
 <span class="w">          </span><span class="no">}</span>
 
 <span class="w">          </span><span class="no"># If resource group is provided</span>
-<span class="w">          </span><span class="no">if (&quot;${{ github.event.inputs.resourceGroup }}&quot; -ne &quot;&quot;) {</span>
-<span class="w">            </span><span class="no">$params.Add(&quot;ResourceGroup&quot;, &quot;${{ github.event.inputs.resourceGroup }}&quot;)</span>
+<span class="w">          </span><span class="no">if ("${{ github.event.inputs.resourceGroup }}" -ne "") {</span>
+<span class="w">            </span><span class="no">$params.Add("ResourceGroup", "${{ github.event.inputs.resourceGroup }}")</span>
 <span class="w">          </span><span class="no">}</span>
 
 <span class="w">          </span><span class="no"># Set report name</span>
-<span class="w">          </span><span class="no">if (&quot;${{ github.event.inputs.reportName }}&quot; -ne &quot;&quot;) {</span>
-<span class="w">            </span><span class="no">$params.Add(&quot;ReportName&quot;, &quot;${{ github.event.inputs.reportName }}&quot;)</span>
+<span class="w">          </span><span class="no">if ("${{ github.event.inputs.reportName }}" -ne "") {</span>
+<span class="w">            </span><span class="no">$params.Add("ReportName", "${{ github.event.inputs.reportName }}")</span>
 <span class="w">          </span><span class="no">} else {</span>
-<span class="w">            </span><span class="no">$params.Add(&quot;ReportName&quot;, &quot;AzureInventory_$(Get-Date -Format &#39;yyyyMMdd&#39;)&quot;)</span>
+<span class="w">            </span><span class="no">$params.Add("ReportName", "AzureInventory_$(Get-Date -Format 'yyyyMMdd')")</span>
 <span class="w">          </span><span class="no">}</span>
 
 <span class="w">          </span><span class="no"># Add any other parameters you want to use here</span>
-<span class="w">          </span><span class="no"># For example: $params.Add(&quot;SecurityCenter&quot;, $true)</span>
+<span class="w">          </span><span class="no"># For example: $params.Add("SecurityCenter", $true)</span>
 
 <span class="w">          </span><span class="no"># Run ARI</span>
 <span class="w">          </span><span class="no">Invoke-ARI @params</span>
 
 <span class="w">          </span><span class="no"># Create artifacts directory</span>
-<span class="w">          </span><span class="no">New-Item -Path &quot;$env:GITHUB_WORKSPACE/ari-reports&quot; -ItemType Directory -Force</span>
+<span class="w">          </span><span class="no">New-Item -Path "$env:GITHUB_WORKSPACE/ari-reports" -ItemType Directory -Force</span>
 
 <span class="w">          </span><span class="no"># Move reports to artifacts directory</span>
-<span class="w">          </span><span class="no">Move-Item -Path &quot;$HOME/AzureResourceInventory/*.xlsx&quot; -Destination &quot;$env:GITHUB_WORKSPACE/ari-reports/&quot; -Force</span>
+<span class="w">          </span><span class="no">Move-Item -Path "$HOME/AzureResourceInventory/*.xlsx" -Destination "$env:GITHUB_WORKSPACE/ari-reports/" -Force</span>
 
-<span class="w">          </span><span class="no">if (Test-Path &quot;$HOME/AzureResourceInventory/*.xml&quot;) {</span>
-<span class="w">            </span><span class="no">Move-Item -Path &quot;&quot;$HOME/AzureResourceInventory/*.xml&quot; -Destination &quot;$env:GITHUB_WORKSPACE/ari-reports/&quot; -Force</span>
+<span class="w">          </span><span class="no">if (Test-Path "$HOME/AzureResourceInventory/*.xml") {</span>
+<span class="w">            </span><span class="no">Move-Item -Path ""$HOME/AzureResourceInventory/*.xml" -Destination "$env:GITHUB_WORKSPACE/ari-reports/" -Force</span>
 <span class="w">          </span><span class="no">}</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload Reports as Artifacts</span>
@@ -1859,14 +1859,14 @@ If you forgot to save the output of the user-assigned identity, you can retrieve
 <span class="w">      </span><span class="c1"># - name: Upload to Azure Storage</span>
 <span class="w">      </span><span class="c1">#   shell: pwsh</span>
 <span class="w">      </span><span class="c1">#   run: |</span>
-<span class="w">      </span><span class="c1">#     $storageAccount = &quot;yourstorageaccount&quot;</span>
-<span class="w">      </span><span class="c1">#     $container = &quot;ari-reports&quot;</span>
+<span class="w">      </span><span class="c1">#     $storageAccount = "yourstorageaccount"</span>
+<span class="w">      </span><span class="c1">#     $container = "ari-reports"</span>
 <span class="w">      </span><span class="c1">#</span>
 <span class="w">      </span><span class="c1">#     # Create the storage context</span>
 <span class="w">      </span><span class="c1">#     $ctx = New-AzStorageContext -StorageAccountName $storageAccount -UseConnectedAccount</span>
 <span class="w">      </span><span class="c1">#</span>
 <span class="w">      </span><span class="c1">#     # Upload files to Azure Storage</span>
-<span class="w">      </span><span class="c1">#     Get-ChildItem -Path &quot;$env:GITHUB_WORKSPACE/ari-reports&quot; -File | ForEach-Object {</span>
+<span class="w">      </span><span class="c1">#     Get-ChildItem -Path "$env:GITHUB_WORKSPACE/ari-reports" -File | ForEach-Object {</span>
 <span class="w">      </span><span class="c1">#       Set-AzStorageBlobContent -File $_.FullName -Container $container -Blob $_.Name -Context $ctx -Force</span>
 <span class="w">      </span><span class="c1">#     }</span>
 
@@ -1888,14 +1888,14 @@ If you forgot to save the output of the user-assigned identity, you can retrieve
 <h3 id="scheduling">Scheduling</h3>
 <p>The default schedule runs the workflow weekly on Monday at 8:00 AM UTC. Modify the <code>cron</code> expression to change the schedule:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">schedule</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;0</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">1&#39;</span><span class="w">  </span><span class="c1"># Monday at 8:00 AM UTC</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">'0</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">1'</span><span class="w">  </span><span class="c1"># Monday at 8:00 AM UTC</span>
 </code></pre></div>
 <h3 id="ari-parameters">ARI Parameters</h3>
 <p>You can add any ARI parameters in the PowerShell script section. For example:</p>
 <div class="highlight"><pre><span></span><code><span class="c"># Add parameters</span>
-<span class="nv">$params</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">&quot;SecurityCenter&quot;</span><span class="p">,</span> <span class="nv">$true</span><span class="p">)</span>
-<span class="nv">$params</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">&quot;IncludeTags&quot;</span><span class="p">,</span> <span class="nv">$true</span><span class="p">)</span>
-<span class="nv">$params</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">&quot;DiagramFullEnvironment&quot;</span><span class="p">,</span> <span class="nv">$true</span><span class="p">)</span>
+<span class="nv">$params</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">"SecurityCenter"</span><span class="p">,</span> <span class="nv">$true</span><span class="p">)</span>
+<span class="nv">$params</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">"IncludeTags"</span><span class="p">,</span> <span class="nv">$true</span><span class="p">)</span>
+<span class="nv">$params</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s2">"DiagramFullEnvironment"</span><span class="p">,</span> <span class="nv">$true</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="storage-options">Storage Options</h3>
 <p>The template includes two storage options:</p>
@@ -1910,12 +1910,12 @@ If you forgot to save the output of the user-assigned identity, you can retrieve
 <span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pwsh</span>
 <span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">    </span><span class="no">$subscriptionIds = @(</span>
-<span class="w">      </span><span class="no">&quot;00000000-0000-0000-0000-000000000000&quot;,</span>
-<span class="w">      </span><span class="no">&quot;11111111-1111-1111-1111-111111111111&quot;</span>
+<span class="w">      </span><span class="no">"00000000-0000-0000-0000-000000000000",</span>
+<span class="w">      </span><span class="no">"11111111-1111-1111-1111-111111111111"</span>
 <span class="w">    </span><span class="no">)</span>
 
 <span class="w">    </span><span class="no">foreach ($subId in $subscriptionIds) {</span>
-<span class="w">      </span><span class="no">Invoke-ARI -SubscriptionID $subId -ReportName &quot;AzureInventory_${subId}_$(Get-Date -Format &#39;yyyyMMdd&#39;)&quot;</span>
+<span class="w">      </span><span class="no">Invoke-ARI -SubscriptionID $subId -ReportName "AzureInventory_${subId}_$(Get-Date -Format 'yyyyMMdd')"</span>
 <span class="w">    </span><span class="no">}</span>
 </code></pre></div>
 <h3 id="adding-email-notifications">Adding Email Notifications</h3>

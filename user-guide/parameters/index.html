@@ -1612,16 +1612,16 @@
 </table>
 <h2 id="examples-of-parameter-combinations">Examples of Parameter Combinations</h2>
 <h3 id="basic-inventory-with-tags">Basic Inventory with Tags</h3>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span> <span class="n">-IncludeTags</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span> <span class="n">-IncludeTags</span>
 </code></pre></div>
 <h3 id="scoped-inventory-with-security-data">Scoped Inventory with Security Data</h3>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span> <span class="n">-SecurityCenter</span> <span class="n">-ReportName</span> <span class="s2">&quot;SecureInventory&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-SubscriptionID</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span> <span class="n">-SecurityCenter</span> <span class="n">-ReportName</span> <span class="s2">"SecureInventory"</span>
 </code></pre></div>
 <h3 id="production-environment-inventory">Production Environment Inventory</h3>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TagKey</span> <span class="s2">&quot;Environment&quot;</span> <span class="n">-TagValue</span> <span class="s2">&quot;Production&quot;</span> <span class="n">-ReportDir</span> <span class="s2">&quot;C:\Reports\Production&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TagKey</span> <span class="s2">"Environment"</span> <span class="n">-TagValue</span> <span class="s2">"Production"</span> <span class="n">-ReportDir</span> <span class="s2">"C:\Reports\Production"</span>
 </code></pre></div>
 <h3 id="management-group-inventory-with-service-principal">Management Group Inventory with Service Principal</h3>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-ManagementGroup</span> <span class="s2">&quot;MyMgmtGroup&quot;</span> <span class="n">-AppId</span> <span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span> <span class="n">-Secret</span> <span class="s2">&quot;your-client-secret&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-ManagementGroup</span> <span class="s2">"MyMgmtGroup"</span> <span class="n">-AppId</span> <span class="s2">"00000000-0000-0000-0000-000000000000"</span> <span class="n">-Secret</span> <span class="s2">"your-client-secret"</span>
 </code></pre></div>
 <h3 id="lightweight-report-without-diagrams">Lightweight Report without Diagrams</h3>
 <div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-Lite</span> <span class="n">-SkipDiagram</span>
@@ -1630,7 +1630,7 @@
 <div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-DiagramFullEnvironment</span>
 </code></pre></div>
 <h3 id="automation-account-execution">Automation Account Execution</h3>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-Automation</span> <span class="n">-StorageAccount</span> <span class="s2">&quot;mystorageaccount&quot;</span> <span class="n">-StorageContainer</span> <span class="s2">&quot;reports&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-Automation</span> <span class="n">-StorageAccount</span> <span class="s2">"mystorageaccount"</span> <span class="n">-StorageContainer</span> <span class="s2">"reports"</span>
 </code></pre></div>
 
 

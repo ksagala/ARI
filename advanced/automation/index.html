@@ -1508,6 +1508,7 @@
 <li>Az.Accounts</li>
 <li>Az.Storage</li>
 <li>Az.Compute</li>
+<li>Az.Monitor</li>
 <li>Az.CostManagement (only if using the <code>-IncludeCosts</code> parameter)</li>
 </ol>
 <h3 id="step-6-create-a-powershell-runbook">Step 6: Create a PowerShell Runbook</h3>
@@ -1530,7 +1531,7 @@
 </ol>
 <h3 id="step-7-configure-the-ari-command">Step 7: Configure the ARI Command</h3>
 <p>Add the Invoke-ARI command with the required parameters:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">&quot;XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX&quot;</span> <span class="n">-Automation</span> <span class="n">-StorageAccount</span> <span class="s2">&quot;mystorageaccount&quot;</span> <span class="n">-StorageContainer</span> <span class="s2">&quot;reports&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Invoke-ARI</span> <span class="n">-TenantID</span> <span class="s2">"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"</span> <span class="n">-Automation</span> <span class="n">-StorageAccount</span> <span class="s2">"mystorageaccount"</span> <span class="n">-StorageContainer</span> <span class="s2">"reports"</span>
 </code></pre></div>
 <p>Required parameters:
 - <strong>TenantID</strong>: Your Azure Tenant ID
